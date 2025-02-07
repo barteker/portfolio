@@ -11,9 +11,13 @@ const fonts = [
     { name: 'Bocalupo', designer: 'Ambre Ruggeri', foundry: 'XCicéro' },
     { name: 'Young Serif', designer: 'Bastien Sozeau', foundry: 'upload.fr' },
     { name: 'Array', designer: 'Indian Type Foundry', foundry: 'Indian Type Foundry' },
-    { name: 'Sniglet', designer: 'Haley Fiege', foundry: 'The League of Moveable Type' },
     { name: 'jgs Font', designer: 'Adel Faure', foundry: 'Velvetyne' }
 ];
+
+const isMobile = window.matchMedia("(max-width: 768px)").matches;
+let lastScrollPosition = 0;
+let scrollTimeout;
+let lastFontChange = Date.now();
 
 let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0)
 let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0)
@@ -25,10 +29,12 @@ let fontInterval;
 const baseSize = vw * 0.1; //matches font size of h1
 
 title.addEventListener('mouseenter', () => {
-    fontInterval = setInterval(() => {
-        currentFont = (currentFont + 1) % fonts.length;
-        updateFont();
-    }, 100);
+    if (!isMobile) {  // Only run hover effect on desktop
+        fontInterval = setInterval(() => {
+            currentFont = (currentFont + 1) % fonts.length;
+            updateFont();
+        }, 100);
+    }
 });
 
 title.addEventListener('mouseleave', () => {
@@ -38,7 +44,11 @@ title.addEventListener('mouseleave', () => {
 
 function updateFont() {
     const font = fonts[currentFont];
-    title.style.fontFamily = font.name;
+    title.style.fontFamily = `${font.name}, sans-serif`;
+    // fallback to prevent FOUT (Flash of Unstyled Text)
+    if (!document.fonts.check(`1em "${font.name}"`)) {
+        console.log(`Loading font: ${font.name}`);
+    }
 }
 
 function updateCredits() {
@@ -48,16 +58,46 @@ function updateCredits() {
 
 document.addEventListener('DOMContentLoaded', () => {
     updateCredits();
+    // Add lazy loading for images
+    const images = document.querySelectorAll('img');
+    images.forEach(img => {
+        img.loading = 'lazy';
+        img.decoding = 'async';
+    });
+
+    // Preload critical fonts
+    const fontPreloadLink = document.createElement('link');
+    fontPreloadLink.rel = 'preload';
+    fontPreloadLink.as = 'font';
+    fontPreloadLink.href = '/assets/fonts/ClashGrotesk-Variable.ttf';
+    fontPreloadLink.type = 'font/ttf';
+    fontPreloadLink.crossOrigin = 'anonymous';
+    document.head.appendChild(fontPreloadLink);
+
+    // Handle resize events to update isMobile
+    window.addEventListener('resize', () => {
+        isMobile = window.matchMedia("(max-width: 768px)").matches;
+    });
 });
 
-// // Add this to your existing JavaScript
-// const nav = document.querySelector('.side-nav');
-// const navInitialOffset = window.innerHeight / 2; // Middle of viewport
-
-// window.addEventListener('scroll', () => {
-//     if (window.scrollY > navInitialOffset) {
-//         nav.classList.add('sticky');
-//     } else {
-//         nav.classList.remove('sticky');
-//     }
-// }); 
+window.addEventListener('scroll', () => {
+    if (isMobile) {
+        clearTimeout(scrollTimeout);
+        
+        const currentTime = Date.now();
+        const currentScroll = window.scrollY;
+        
+        // Only change font if enough time has passed
+        if (currentTime - lastFontChange >= 100) {
+            currentFont = (currentFont + 1) % fonts.length;
+            updateFont();
+            lastFontChange = currentTime;
+        }
+        
+        lastScrollPosition = currentScroll;
+        
+        scrollTimeout = setTimeout(() => {
+            updateCredits();
+        }, 150);
+    }
+});
