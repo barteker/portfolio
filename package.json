@@ -1,0 +1,20 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "This is my portfolio webiste that aslo serves as a testing ground for web implementations using technologies I am interested in. Feel free to poke around but also like I'm not a computer science student so don't judge too much.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/barteker/portfolio.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/barteker/portfolio/issues"
+  },
+  "homepage": "https://github.com/barteker/portfolio#readme"
+}

@@ -131,6 +131,10 @@ body {
   overflow: auto;
 }
 
+.spacer {
+  margin-top: 2rem;
+}
+
 .side-nav {
   flex: 1;
   font-family: "Clash Grotesk", sans-serif;
