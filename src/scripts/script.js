@@ -11,7 +11,9 @@ const fonts = [
     { name: 'Bocalupo', designer: 'Ambre Ruggeri', foundry: 'XCicéro' },
     { name: 'Young Serif', designer: 'Bastien Sozeau', foundry: 'upload.fr' },
     { name: 'Array', designer: 'Indian Type Foundry', foundry: 'Indian Type Foundry' },
-    { name: 'jgs Font', designer: 'Adel Faure', foundry: 'Velvetyne' }
+    { name: 'jgs Font', designer: 'Adel Faure', foundry: 'Velvetyne' },
+    { name: 'Basteleur', designer: 'Keussel', foundry: 'Velvetyne' },
+    { name: 'Sage Grotesk', designer: 'Konrad Łukasiak', foundry: 'Typophobia Studio'}
 ];
 
 const isMobile = window.matchMedia("(max-width: 768px)").matches;

@@ -110,6 +110,22 @@
   font-style: normal;
 }
 
+@font-face {
+  font-family: "Basteleur";
+  src: url("../assets/fonts/homepageFonts/Basteleur-Bold.ttf");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
+@font-face {
+  font-family: "Sage Grotesk";
+  src: url("../assets/fonts/homepageFonts/Sage-Grotesk.otf");
+  font-weight: 100 900;
+  font-display: swap;
+  font-style: normal;
+}
+
 :root {
   --text-color: #000000;
   --bg-color: #ffffff;
@@ -281,6 +297,32 @@ footer {
   pointer-events: none;
 }
 
+/* Add styles for sub-pages */
+.page-title {
+  font-size: clamp(2.5rem, 6vw, 4rem);
+  margin-bottom: 2rem;
+  text-align: center;
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 2rem 0;
+}
+
+.project-card {
+  background: var(--bg-color);
+  border: 1px solid var(--text-color);
+  padding: 1rem;
+  transition: all 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
 @media (max-width: 768px) {
   html {
     overflow-x: hidden;
@@ -340,5 +382,10 @@ footer {
   .font-credits {
     position: static;
     margin-top: 0.5rem;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+    padding: 1rem;
   }
 }
