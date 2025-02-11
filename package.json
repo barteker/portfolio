@@ -1,20 +1,31 @@
 {
   "name": "portfolio",
   "version": "1.0.0",
-  "description": "This is my portfolio webiste that aslo serves as a testing ground for web implementations using technologies I am interested in. Feel free to poke around but also like I'm not a computer science student so don't judge too much.",
+  "description": "This is my portfolio website that also serves as a testing ground for web implementations using technologies I am interested in.",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "node server.js",
+    "dev": "nodemon server.js",
+    "build": "webpack --mode production",
+    "watch": "webpack --mode development --watch"
   },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/barteker/portfolio.git"
   },
   "keywords": [],
-  "author": "",
+  "author": "Bart Baker",
   "license": "ISC",
-  "bugs": {
-    "url": "https://github.com/barteker/portfolio/issues"
+  "dependencies": {
+    "express": "^4.18.2"
   },
-  "homepage": "https://github.com/barteker/portfolio#readme"
+  "devDependencies": {
+    "nodemon": "^3.0.3",
+    "webpack": "^5.90.1",
+    "webpack-cli": "^5.1.4",
+    "css-loader": "^6.10.0",
+    "style-loader": "^3.3.4",
+    "mini-css-extract-plugin": "^2.8.0",
+    "html-webpack-plugin": "^5.6.0"
+  }
 }
