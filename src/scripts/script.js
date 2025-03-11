@@ -58,6 +58,15 @@ function updateCredits() {
     credits.textContent = `Currently using ${font.name} by ${font.designer} (${font.foundry})`;
 }
 
+function checkFontCreditsPosition() {
+  // No need to toggle position anymore - keep it fixed
+  if (isMobile) {
+    const fontCredits = document.querySelector('.font-credits');
+    fontCredits.style.position = 'fixed';
+    fontCredits.style.top = '0';
+  }
+}
+
 document.addEventListener('DOMContentLoaded', () => {
     updateCredits();
     // Add lazy loading for images
@@ -80,6 +89,16 @@ document.addEventListener('DOMContentLoaded', () => {
     window.addEventListener('resize', () => {
         isMobile = window.matchMedia("(max-width: 768px)").matches;
     });
+
+    // Initial check for font credits position
+    checkFontCreditsPosition();
+
+    // Set initial position for font credits
+    if (isMobile) {
+        const fontCredits = document.querySelector('.font-credits');
+        fontCredits.style.position = 'fixed';
+        fontCredits.style.top = '0';
+    }
 });
 
 window.addEventListener('scroll', () => {
@@ -97,6 +116,9 @@ window.addEventListener('scroll', () => {
         }
         
         lastScrollPosition = currentScroll;
+        
+        // Check font credits position during scroll
+        checkFontCreditsPosition();
         
         scrollTimeout = setTimeout(() => {
             updateCredits();
