@@ -206,7 +206,6 @@ body {
 
 main {
   flex: 6;
-  max-width: 800px;
   margin: 0 auto;
   padding: 0 2rem;
   min-height: 100vh;
@@ -253,7 +252,7 @@ main {
 
 .profile-image {
   margin: 4rem 0;
-  width: 70vw;
+  width: 60vw;
   margin-left: 6vw;
 }
 
@@ -327,6 +326,30 @@ footer {
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
+.resume-section {
+  max-width: 600px;
+  margin: 4rem auto;
+  text-align: center;
+}
+
+.resume-button {
+  display: inline-block;
+  padding: 1rem 2rem;
+  background-color: #e0e0e0;
+  color: var(--text-color);
+  text-decoration: none;
+  font-family: "Clash Grotesk", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  border-radius: 4px;
+}
+
+.resume-button:hover {
+  background-color: #ff6f00;
+  transform: translateY(-2px);
+}
+
 @media (max-width: 768px) {
   html {
     overflow-x: hidden;
@@ -337,7 +360,7 @@ footer {
     z-index: 1;
     width: 100%;
     padding: 0 1rem;
-    margin-top: 6rem; /* Space for nav + font credits */
+    margin-top: 36px; /* Space for nav + font credits */
     padding-top: 0;
   }
 
@@ -435,4 +458,96 @@ footer {
     grid-template-columns: 1fr;
     padding: 1rem;
   }
+}
+
+.title-container {
+    position: fixed;
+    right: 0;
+    top: 0;
+    width: 70.71%;
+    z-index: 1;
+}
+
+.title-svg {
+    width: 100%;
+    position: absolute;
+}
+
+.title-svg text {
+    font-family: "Clash Grotesk", sans-serif;
+    font-size: 4rem;
+    fill: var(--text-color);
+}
+
+.title-svg path {
+    stroke: transparent;
+}
+
+@media (max-width: 768px) {
+    .title-svg text {
+        font-size: 36pt;
+    }
+}
+
+/* Projects Gallery Styles */
+.projects-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-top: 70.71%;
+}
+
+.projects-gallery {
+    width: 70.71%;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+
+.gallery-row {
+    display: flex;
+    width: 100%;
+}
+
+.gallery-row.full-width {
+    width: 100%;
+}
+
+.gallery-row.two-columns {
+    display: flex;
+    gap: 44px;
+}
+
+.gallery-column {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 44px;
+}
+
+.gallery-item {
+    width: 100%;
+    overflow: hidden;
+    border-radius: 8px;
+    transition: transform 0.3s ease;
+}
+
+.gallery-item:hover {
+    transform: scale(1.02);
+}
+
+.gallery-item img {
+    width: 100%;
+    height: auto;
+    display: block;
+}
+
+@media (max-width: 768px) {
+    .projects-gallery {
+        width: 90%;
+    }
+    
+    .gallery-row.two-columns {
+        flex-direction: column;
+    }
 }
