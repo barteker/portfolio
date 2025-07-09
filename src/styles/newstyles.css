@@ -2,7 +2,7 @@
   font-family: "Clash Grotesk";
   src: url("../assets/fonts/ClashGrotesk/ClashGrotesk-Variable.ttf");
   font-weight: 100 900;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -10,7 +10,7 @@
   font-family: "Aktura";
   src: url("../assets/fonts/homepageFonts/Aktura-Regular.otf");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -18,7 +18,7 @@
   font-family: "Chillax";
   src: url("../assets/fonts/homepageFonts/Chillax-Variable.ttf");
   font-weight: 100 900;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -26,7 +26,7 @@
   font-family: "Nippo";
   src: url("../assets/fonts/homepageFonts/Nippo-Regular.otf");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -34,7 +34,7 @@
   font-family: "Cabinet Grotesk";
   src: url("../assets/fonts/homepageFonts/CabinetGrotesk-Variable.ttf");
   font-weight: 100 900;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -42,7 +42,7 @@
   font-family: "Array";
   src: url("../assets/fonts/homepageFonts/Array-Regular.otf");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -50,7 +50,7 @@
   font-family: "PubliFluorChrystelise";
   src: url("../assets/fonts/homepageFonts/PubliFluorChrystelise.otf");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -58,7 +58,7 @@
   font-family: "Polsku";
   src: url("../assets/fonts/homepageFonts/Polsku.ttf");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -66,7 +66,7 @@
   font-family: "Sans Guilt Wafer";
   src: url("../assets/fonts/homepageFonts/SansGuiltWafer.otf");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -74,7 +74,7 @@
   font-family: "Terminal Grotesque";
   src: url("../assets/fonts/homepageFonts/terminal-grotesque_open.otf");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -82,15 +82,15 @@
   font-family: "Bocalupo";
   src: url("../assets/fonts/homepageFonts/Bocalupo-Regular.otf");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
 @font-face {
   font-family: "Young Serif";
-  src: url("../assets/fonts/YoungSerif-Regular.ttf");
+  src: url("../assets/fonts/homepageFonts/YoungSerif-Regular.ttf");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -98,7 +98,7 @@
   font-family: "jgs Font";
   src: url("../assets/fonts/homepageFonts/jgs_Font.ttf");
   font-weight: normal;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -106,7 +106,7 @@
   font-family: "Poppins";
   src: url("../assets/fonts/homepageFonts/Poppins-VariableFont_wght.ttf");
   font-weight: 100 900;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -114,7 +114,7 @@
   font-family: "Basteleur";
   src: url("../assets/fonts/homepageFonts/Basteleur-Bold.ttf");
   font-weight: 100 900;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -122,7 +122,7 @@
   font-family: "Sage Grotesk";
   src: url("../assets/fonts/homepageFonts/Sage-Grotesk.otf");
   font-weight: 100 900;
-  font-display: swap;
+  font-display: block;
   font-style: normal;
 }
 
@@ -220,7 +220,7 @@ main {
   font-weight: normal;
   margin-bottom: 4rem;
   text-align: center;
-  transition: font-family 0.1s ease;
+  /* Removed transition for instant font changes */
   min-height: 1.2em;
   width: 100%;
   max-width: 800px;

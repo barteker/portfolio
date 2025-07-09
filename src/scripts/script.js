@@ -76,14 +76,14 @@ document.addEventListener('DOMContentLoaded', () => {
         img.decoding = 'async';
     });
 
-    // Preload critical fonts
-    const fontPreloadLink = document.createElement('link');
-    fontPreloadLink.rel = 'preload';
-    fontPreloadLink.as = 'font';
-    fontPreloadLink.href = '/assets/fonts/ClashGrotesk-Variable.ttf';
-    fontPreloadLink.type = 'font/ttf';
-    fontPreloadLink.crossOrigin = 'anonymous';
-    document.head.appendChild(fontPreloadLink);
+    // Preload and wait for all fonts to be ready
+    Promise.all(fonts.map(font => document.fonts.load(`1em "${font.name}"`)))
+        .then(() => {
+            console.log('All fonts loaded and ready for animation');
+        })
+        .catch(error => {
+            console.warn('Some fonts failed to load:', error);
+        });
 
     // Handle resize events to update isMobile
     window.addEventListener('resize', () => {
